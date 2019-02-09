@@ -11,7 +11,7 @@ public class ProductController {
 	@RequestMapping(value = "/product",method = RequestMethod.GET)
 	@ResponseBody
 	public String getProduct(){
-		return "Spring mvc Apllication project";
+		return "Spring mvc Apllication project 111";
 
 	
 		
