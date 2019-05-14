@@ -2,6 +2,8 @@ package com.ignou.shoppingportal.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,51 +11,66 @@ import javax.persistence.Table;
 
 public class Product {
 	@Id
-    private int productId;
+	private int productId;
 	private String productName;
 	private String brand;
 	private float price;
 	private int categoryId;
 	private boolean isActive;
-	
-	
+
+	@ManyToOne
+	@JoinColumn
+	private Category category;
+
 	public int getProductId() {
 		return productId;
 	}
+
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public String getBrand() {
 		return brand;
 	}
+
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
+
 	public float getPrice() {
 		return price;
 	}
+
 	public void setPrice(float price) {
 		this.price = price;
 	}
+
 	public int getCategoryId() {
 		return categoryId;
 	}
+
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
+
 	public boolean isActive() {
 		return isActive;
 	}
+
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	/*@Override
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -65,6 +82,7 @@ public class Product {
 		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,12 +111,13 @@ public class Product {
 		} else if (!productName.equals(other.productName))
 			return false;
 		return true;
-	}*/
+	}
+
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", brand=" + brand + ", price="
 				+ price + ", categoryId=" + categoryId + ", isActive=" + isActive + "]";
-	
+
 	}
-			
+
 }
